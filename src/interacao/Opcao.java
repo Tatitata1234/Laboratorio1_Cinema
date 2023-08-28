@@ -11,23 +11,26 @@ import cinema.Assento;
 //        Dica: Para entrada de dados, sugiro usar a Classe Scanner, da API do Java.
 public class Opcao {
 
-    public boolean reservar(Assento assento){
+    public static boolean reservar(int fileira, int cadeira, Mapa mapa){
+        if (!mapa.getAssentos()[fileira][cadeira].isOcupado()){
+            mapa.getAssentos()[fileira][cadeira].setOcupado(true);
+            
+        }
+    }
+
+    public static boolean cancelar(Assento assento){
 
     }
 
-    public boolean cancelar(Assento assento){
+    public static void mostrarMapa(){
 
     }
 
-    public void mostrarMapa(){
+    public static int calcularQuantidadeAssentosLivres(Mapa mapa){
 
     }
 
-    public int calcularQuantidadeAssentosLivres(Mapa mapa){
-
-    }
-
-    public int calcularQuantidadeAssentosOcupados(Mapa mapa){
+    public static int calcularQuantidadeAssentosOcupados(Mapa mapa){
 
     }
 }
