@@ -2,12 +2,12 @@ package cinema;
 
 public class Assento {
     // Atributos
-    private char fileira;
+    private int fileira;
     private int cadeira;
     private boolean ocupado;
 
     // Construtor
-    public Assento(char fileira, int cadeira, boolean ocupado) {
+    public Assento(int fileira, int cadeira, boolean ocupado) {
         this.fileira = fileira;
         this.cadeira = cadeira;
         this.ocupado = ocupado;
@@ -25,11 +25,11 @@ public class Assento {
     }
 
     // Get e Set
-    public char getFileira() {
+    public int getFileira() {
         return fileira;
     }
 
-    public void setFileira(char fileira) {
+    public void setFileira(int fileira) {
         this.fileira = fileira;
     }
 
