@@ -1,6 +1,7 @@
 package interacao;
 
 import cinema.Assento;
+import cinema.Mapa;
 
 //Escreva uma aplicação que apresente um menu de opções, permitindo fazer uma reserva, cancelar uma
 //        reserva, mostrar quais assentos estão livres/ocupados (mapa) e mostrar o total de lugares livres/ocupados.
@@ -14,12 +15,17 @@ public class Opcao {
     public static boolean reservar(int fileira, int cadeira, Mapa mapa){
         if (!mapa.getAssentos()[fileira][cadeira].isOcupado()){
             mapa.getAssentos()[fileira][cadeira].setOcupado(true);
-            
+            return true;
         }
+        return false;
     }
 
-    public static boolean cancelar(Assento assento){
-
+    public static boolean cancelar(int fileira, int cadeira, Mapa mapa){
+        if (mapa.getAssentos()[fileira][cadeira].isOcupado()){
+            mapa.getAssentos()[fileira][cadeira].setOcupado(false);
+            return true;
+        }
+        return false;
     }
 
     public static void mostrarMapa(){
