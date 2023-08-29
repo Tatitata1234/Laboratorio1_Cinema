@@ -1,18 +1,20 @@
 package cinema;
 
+import static java.lang.System.*;
+
 public class Mapa {
     // Atributos
     private Assento[][] assentos;
-    private int qtdFileiras;
-    private int qtdCadeiras;
+    private final int QUANTIDADE_FILEIRAS = 12;
+    private final int QUANTIDADE_CADEIRAS = 14;
+
+    private final String[] ALFABETO = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"};
 
     // Construtor
-    public Mapa(int qtdFileiras, int qtdCadeiras) {
-        this.assentos = new Assento[qtdFileiras][qtdCadeiras];
-        this.qtdFileiras = qtdFileiras;
-        this.qtdCadeiras = qtdCadeiras;
-        for (int i = 0; i < qtdFileiras; i++) {
-            for (int j = 0; j < qtdCadeiras; j++) {
+    public Mapa() {
+        this.assentos = new Assento[QUANTIDADE_FILEIRAS][QUANTIDADE_CADEIRAS];
+        for (int i = 0; i < QUANTIDADE_FILEIRAS; i++) {
+            for (int j = 0; j < QUANTIDADE_CADEIRAS; j++) {
                 assentos[i][j] = new Assento(i, j,false);
             }
         }
@@ -52,18 +54,32 @@ public class Mapa {
     }
 
     public void mostrarMapa(){
-        for (int i = 0; i < qtdCadeiras; i++) {
-            for (int j = 0; j < qtdFileiras; j++)
-                System.out.print(assentos[i][j]);
-            System.out.println();
+        for (int i = 0; i < QUANTIDADE_FILEIRAS; i++) {
+            out.print(ALFABETO[i] + "\t");
+            for (int j = 0; j < QUANTIDADE_CADEIRAS; j++) {
+                out.print(assentos[i][j] + "\t");
+                if (j == (QUANTIDADE_CADEIRAS-2)/2){
+                    out.print(" \t");
+                }
+            }
+            out.print(ALFABETO[i] + "\t");
+            out.println();
         }
-
+        out.print(" \t");
+        for (int j = 1; j <= QUANTIDADE_CADEIRAS; j++) {
+            out.print(j + "\t");
+            if (j == (QUANTIDADE_CADEIRAS)/2){
+                out.print(" \t");
+            }
+        }
+        out.println();
+        out.println();
     }
 
     public int calcularQuantidadeAssentosLivres(){
         int assentosLivres = 0;
-        for (int i = 0; i < qtdFileiras; i++) {
-            for (int j = 0; j < qtdCadeiras; j++) {
+        for (int i = 0; i < QUANTIDADE_FILEIRAS; i++) {
+            for (int j = 0; j < QUANTIDADE_CADEIRAS; j++) {
                 if (!assentos[i][j].isOcupado())
                     assentosLivres++;
             }
@@ -73,8 +89,8 @@ public class Mapa {
 
     public int calcularQuantidadeAssentosOcupados(){
         int assentosOcupados = 0;
-        for (int i = 0; i < qtdFileiras; i++) {
-            for (int j = 0; j < qtdCadeiras; j++) {
+        for (int i = 0; i < QUANTIDADE_FILEIRAS; i++) {
+            for (int j = 0; j < QUANTIDADE_CADEIRAS; j++) {
                 if (assentos[i][j].isOcupado())
                     assentosOcupados++;
             }
@@ -91,19 +107,12 @@ public class Mapa {
         this.assentos = assentos;
     }
 
-    public int getQtdFileiras() {
-        return qtdFileiras;
+    public int getQUANTIDADE_FILEIRAS() {
+        return QUANTIDADE_FILEIRAS;
     }
 
-    public void setQtdFileiras(int qtdFileiras) {
-        this.qtdFileiras = qtdFileiras;
+    public int getQUANTIDADE_CADEIRAS() {
+        return QUANTIDADE_CADEIRAS;
     }
 
-    public int getQtdCadeiras() {
-        return qtdCadeiras;
-    }
-
-    public void setQtdCadeiras(int qtdCadeiras) {
-        this.qtdCadeiras = qtdCadeiras;
-    }
 }

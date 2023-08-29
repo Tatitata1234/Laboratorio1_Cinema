@@ -11,7 +11,9 @@ import cinema.Mapa;
 // Dica: Para entrada de dados, sugiro usar a Classe Scanner, da API do Java.
 public class Menu {
     public static void main(String[] args) {
-        Mapa mapa = new Mapa(2,2);
+        Mapa mapa = new Mapa();
+        mapa.mostrarMapa();
+        mapa.reservar(0,0);
         mapa.mostrarMapa();
     }
 }
