@@ -61,11 +61,25 @@ public class Mapa {
     }
 
     public int calcularQuantidadeAssentosLivres(Mapa mapa){
-        return 0;
+        int assentosLivres = 0;
+        for (int i = 0; i < mapa.getQtdFileiras(); i++) {
+            for (int j = 0; j < mapa.getQtdCadeiras(); j++) {
+                if (!mapa.getAssentos()[i][j].isOcupado())
+                    assentosLivres++;
+            }
+        }
+        return assentosLivres;
     }
 
     public int calcularQuantidadeAssentosOcupados(Mapa mapa){
-        return 0;
+        int assentosOcupados = 0;
+        for (int i = 0; i < mapa.getQtdFileiras(); i++) {
+            for (int j = 0; j < mapa.getQtdCadeiras(); j++) {
+                if (mapa.getAssentos()[i][j].isOcupado())
+                    assentosOcupados++;
+            }
+        }
+        return assentosOcupados;
     }
 
     // Get e Set
