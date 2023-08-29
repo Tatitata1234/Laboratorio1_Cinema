@@ -1,6 +1,5 @@
 package interacao;
 
-import cinema.Assento;
 import cinema.Mapa;
 
 //Escreva uma aplicação que apresente um menu de opções, permitindo fazer uma reserva, cancelar uma
@@ -12,31 +11,5 @@ import cinema.Mapa;
 //        Dica: Para entrada de dados, sugiro usar a Classe Scanner, da API do Java.
 public class Opcao {
 
-    public static boolean reservar(int fileira, int cadeira, Mapa mapa){
-        if (!mapa.getAssentos()[fileira][cadeira].isOcupado()){
-            mapa.getAssentos()[fileira][cadeira].setOcupado(true);
-            return true;
-        }
-        return false;
-    }
 
-    public static boolean cancelar(int fileira, int cadeira, Mapa mapa){
-        if (mapa.getAssentos()[fileira][cadeira].isOcupado()){
-            mapa.getAssentos()[fileira][cadeira].setOcupado(false);
-            return true;
-        }
-        return false;
-    }
-
-    public static void mostrarMapa(){
-
-    }
-
-    public static int calcularQuantidadeAssentosLivres(Mapa mapa){
-
-    }
-
-    public static int calcularQuantidadeAssentosOcupados(Mapa mapa){
-
-    }
 }
