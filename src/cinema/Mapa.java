@@ -21,17 +21,17 @@ public class Mapa {
     }
 
     // Métodos
-    public boolean ocuparAssento(int possicaoFileira, int possicaoCadeira) {
-        if (assentos[possicaoFileira][possicaoCadeira].isOcupado()) {
-            assentos[possicaoFileira][possicaoCadeira].setOcupado(true);
+    public boolean reservar(int fileira, int cadeira, Mapa mapa){
+        if (!mapa.getAssentos()[fileira][cadeira].isOcupado()){
+            mapa.getAssentos()[fileira][cadeira].setOcupado(true);
             return true;
         }
         return false;
     }
 
-    public boolean desocuparAssento(int possicaoFileira, int possicaoCadeira) {
-        if (!assentos[possicaoFileira][possicaoCadeira].isOcupado()) {
-            assentos[possicaoFileira][possicaoCadeira].setOcupado(false);
+    public boolean cancelar(int fileira, int cadeira, Mapa mapa){
+        if (mapa.getAssentos()[fileira][cadeira].isOcupado()){
+            mapa.getAssentos()[fileira][cadeira].setOcupado(false);
             return true;
         }
         return false;
