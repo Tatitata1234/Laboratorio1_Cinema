@@ -35,47 +35,47 @@ public class Mapa {
         return false;
     }
 
-    public boolean reservar(int fileira, int cadeira, Mapa mapa){
-        if (!mapa.getAssentos()[fileira][cadeira].isOcupado()){
-            mapa.getAssentos()[fileira][cadeira].setOcupado(true);
+    public boolean reservar(int fileira, int cadeira){
+        if (!assentos[fileira][cadeira].isOcupado()){
+            assentos[fileira][cadeira].setOcupado(true);
             return true;
         }
         return false;
     }
 
-    public boolean cancelar(int fileira, int cadeira, Mapa mapa){
-        if (mapa.getAssentos()[fileira][cadeira].isOcupado()){
-            mapa.getAssentos()[fileira][cadeira].setOcupado(false);
+    public boolean cancelar(int fileira, int cadeira){
+        if (assentos[fileira][cadeira].isOcupado()){
+            assentos[fileira][cadeira].setOcupado(false);
             return true;
         }
         return false;
     }
 
-    public void mostrarMapa(Mapa mapa){
-        for (int i = 0; i < mapa.getQtdCadeiras(); i++) {
-            for (int j = 0; j < mapa.getQtdFileiras(); j++)
-                System.out.print(mapa.getAssentos()[i][j]);
+    public void mostrarMapa(){
+        for (int i = 0; i < qtdCadeiras; i++) {
+            for (int j = 0; j < qtdFileiras; j++)
+                System.out.print(assentos[i][j]);
             System.out.println();
         }
 
     }
 
-    public int calcularQuantidadeAssentosLivres(Mapa mapa){
+    public int calcularQuantidadeAssentosLivres(){
         int assentosLivres = 0;
-        for (int i = 0; i < mapa.getQtdFileiras(); i++) {
-            for (int j = 0; j < mapa.getQtdCadeiras(); j++) {
-                if (!mapa.getAssentos()[i][j].isOcupado())
+        for (int i = 0; i < qtdFileiras; i++) {
+            for (int j = 0; j < qtdCadeiras; j++) {
+                if (!assentos[i][j].isOcupado())
                     assentosLivres++;
             }
         }
         return assentosLivres;
     }
 
-    public int calcularQuantidadeAssentosOcupados(Mapa mapa){
+    public int calcularQuantidadeAssentosOcupados(){
         int assentosOcupados = 0;
-        for (int i = 0; i < mapa.getQtdFileiras(); i++) {
-            for (int j = 0; j < mapa.getQtdCadeiras(); j++) {
-                if (mapa.getAssentos()[i][j].isOcupado())
+        for (int i = 0; i < qtdFileiras; i++) {
+            for (int j = 0; j < qtdCadeiras; j++) {
+                if (assentos[i][j].isOcupado())
                     assentosOcupados++;
             }
         }
