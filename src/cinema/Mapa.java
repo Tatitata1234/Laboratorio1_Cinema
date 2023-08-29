@@ -19,7 +19,7 @@ public class Mapa {
     }
 
     // Métodos
-    public boolean adicionarAssento(int possicaoFileira, int possicaoCadeira) {
+    public boolean ocuparAssento(int possicaoFileira, int possicaoCadeira) {
         if (assentos[possicaoFileira][possicaoCadeira].isOcupado()) {
             assentos[possicaoFileira][possicaoCadeira].setOcupado(true);
             return true;
@@ -27,9 +27,9 @@ public class Mapa {
         return false;
     }
 
-    public boolean removerAssento(int possicaoFileira, int possicaoCadeira) {
-        if (assentos[possicaoFileira][possicaoCadeira] != null) {
-            assentos[possicaoFileira][possicaoCadeira] = new Assento(possicaoFileira, possicaoCadeira,false);
+    public boolean desocuparAssento(int possicaoFileira, int possicaoCadeira) {
+        if (!assentos[possicaoFileira][possicaoCadeira].isOcupado()) {
+            assentos[possicaoFileira][possicaoCadeira].setOcupado(false);
             return true;
         }
         return false;
